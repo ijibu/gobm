@@ -89,3 +89,12 @@ func max(a, b int) int {
 func HasPrefix(s, prefix string) bool {
 	return len(s) >= len(prefix) && s[0:len(prefix)] == prefix
 }
+
+func StringFind(pattern, text string) int {
+	return makeStringFinder(pattern).next(text)
+}
+
+func DumpTables(pattern string) ([]int, []int) {
+	finder := makeStringFinder(pattern)
+	return finder.badCharSkip[:], finder.goodSuffixSkip
+}
